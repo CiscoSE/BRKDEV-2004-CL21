@@ -1,6 +1,6 @@
 # For pre-claimed devices in Intersight, you'll need to create a data
 # source in order to reference it in the remaining Terraform configuration
-data "intersight_compute_rack_unit" "server1" {
+data "intersight_compute_rack_unit" "C240-M4L-Lab" {
     serial = var.c240_m4l_lab_device_id
 }
 
