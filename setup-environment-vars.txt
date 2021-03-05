@@ -1,0 +1,6 @@
+# Terraform required variables for security, stored on laptop home directory
+# for Terraform OSS use cases.  Can be secure secrets in Terraform cloud
+
+export TF_VAR_intersight_apikey=$(cat $HOME/.secure/Intersight-API-Key.txt)
+export TF_VAR_intersight_secretkey=$(cat $HOME/.secure/Intersight-Secret-Key.pem)
+export TF_VAR_c240_m4l_lab_device_id=$(cat $HOME/.secure/C240-M4L-LAB.serial.txt)
