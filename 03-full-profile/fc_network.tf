@@ -102,7 +102,7 @@ resource "intersight_vnic_fc_network_policy" "fc_no_default_vlan" {
 # Define the SAN vNICs for server1 - MLOM fc0
 resource "intersight_vnic_fc_if" "mlom_fc0" {
     name = "fc0"
-    order = 0
+    order = 4
 
     placement {
         id = "MLOM"
@@ -133,7 +133,69 @@ resource "intersight_vnic_fc_if" "mlom_fc0" {
 # Define the SAN vNICs for server1 - MLOM fc1
 resource "intersight_vnic_fc_if" "mlom_fc1" {
     name = "fc1"
-    order = 1
+    order = 5
+
+    placement {
+        id = "MLOM"
+        pci_link = 0
+        uplink = 1
+    }
+
+    type = "fc-initiator"
+    persistent_bindings = true
+
+    san_connectivity_policy {
+        moid = intersight_vnic_san_connectivity_policy.hv_san_adapters.moid
+    }
+
+    fc_adapter_policy {
+        moid = intersight_vnic_fc_adapter_policy.default_fibre_channel.moid
+    }
+
+    fc_network_policy {
+        moid = intersight_vnic_fc_network_policy.fc_no_default_vlan.moid
+    }
+
+    fc_qos_policy {
+        moid = intersight_vnic_fc_qos_policy.default_qos_fc_size_2112.moid
+    }
+}
+
+# Define the SAN vNICs for server1 - MLOM fc2
+resource "intersight_vnic_fc_if" "mlom_fc2" {
+    name = "fc2"
+    order = 6
+
+    placement {
+        id = "MLOM"
+        pci_link = 0
+        uplink = 0
+    }
+
+    type = "fc-initiator"
+    persistent_bindings = true
+
+    san_connectivity_policy {
+        moid = intersight_vnic_san_connectivity_policy.hv_san_adapters.moid
+    }
+
+    fc_adapter_policy {
+        moid = intersight_vnic_fc_adapter_policy.default_fibre_channel.moid
+    }
+
+    fc_network_policy {
+        moid = intersight_vnic_fc_network_policy.fc_no_default_vlan.moid
+    }
+
+    fc_qos_policy {
+        moid = intersight_vnic_fc_qos_policy.default_qos_fc_size_2112.moid
+    }
+}
+
+# Define the SAN vNICs for server1 - MLOM fc3
+resource "intersight_vnic_fc_if" "mlom_fc3" {
+    name = "fc3"
+    order = 7
 
     placement {
         id = "MLOM"

@@ -120,6 +120,22 @@ resource "intersight_vnic_eth_network_policy" "eth_trunk_native_vlan_1" {
     }
 }
 
+# Define Ethernet vNIC network policy - trunks
+resource "intersight_vnic_eth_network_policy" "eth_access_vlan_500" {
+    organization {
+        moid = data.intersight_organization_organization.default.moid
+    }
+
+    description = "Terraform deployed"
+    name = "eth_access_vlan_500"
+    target_platform = "Standalone"
+
+    vlan_settings {
+        default_vlan = 500
+        mode = "ACCESS"
+    }
+}
+
 # Define the LAN vNICs for server1 - MLOM eth0
 resource "intersight_vnic_eth_if" "mlom_eth0" {
     name = "eth0"
@@ -145,7 +161,7 @@ resource "intersight_vnic_eth_if" "mlom_eth0" {
     }
 
     eth_network_policy {
-        moid = intersight_vnic_eth_network_policy.eth_trunk_native_vlan_1.moid
+        moid = intersight_vnic_eth_network_policy.eth_access_vlan_500.moid
     }
 
     eth_qos_policy {
@@ -179,6 +195,97 @@ resource "intersight_vnic_eth_if" "mlom_eth1" {
     cdn {
         nr_source = "user"
         value = "vic_mlom_eth1"
+    }
+
+    lan_connectivity_policy {
+        moid = intersight_vnic_lan_connectivity_policy.hv_lan_adapters.moid
+    }
+
+    eth_adapter_policy {
+        moid = intersight_vnic_eth_adapter_policy.default_ethernet.moid
+    }
+
+    eth_network_policy {
+        moid = intersight_vnic_eth_network_policy.eth_access_vlan_500.moid
+    }
+
+    eth_qos_policy {
+        moid = intersight_vnic_eth_qos_policy.default_qos_mtu_1500.moid
+    }
+
+    usnic_settings{
+        nr_count = 0
+        cos = 5
+    }
+
+    vmq_settings {
+        enabled = false
+        multi_queue_support = false
+        num_interrupts = 16
+        num_sub_vnics = 64
+        num_vmqs = 4
+    }
+}
+
+# Define the LAN trunk vNICs for server1 - MLOM eth2
+resource "intersight_vnic_eth_if" "mlom_eth2" {
+    name = "eth2"
+    order = 2
+
+    placement {
+        id = "MLOM"
+        pci_link = 0
+        uplink = 0
+    }
+
+    cdn {
+        nr_source = "user"
+        value = "vic_mlom_eth2"
+    }
+
+    lan_connectivity_policy {
+        moid = intersight_vnic_lan_connectivity_policy.hv_lan_adapters.moid
+    }
+
+    eth_adapter_policy {
+        moid = intersight_vnic_eth_adapter_policy.default_ethernet.moid
+    }
+
+    eth_network_policy {
+        moid = intersight_vnic_eth_network_policy.eth_trunk_native_vlan_1.moid
+    }
+
+    eth_qos_policy {
+        moid = intersight_vnic_eth_qos_policy.default_qos_mtu_1500.moid
+    }
+
+    usnic_settings{
+        nr_count = 0
+        cos = 5
+    }
+
+    vmq_settings {
+        enabled = false
+        multi_queue_support = false
+        num_interrupts = 16
+        num_sub_vnics = 64
+        num_vmqs = 4
+    }
+}
+
+resource "intersight_vnic_eth_if" "mlom_eth3" {
+    name = "eth3"
+    order = 3
+
+    placement {
+        id = "MLOM"
+        pci_link = 0
+        uplink = 1
+    }
+
+    cdn {
+        nr_source = "user"
+        value = "vic_mlom_eth3"
     }
 
     lan_connectivity_policy {
