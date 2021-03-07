@@ -4,3 +4,6 @@
 export TF_VAR_intersight_apikey=$(cat $HOME/.secure/Intersight-API-Key.txt)
 export TF_VAR_intersight_secretkey=$(cat $HOME/.secure/Intersight-Secret-Key.pem)
 export TF_VAR_c240_m4l_lab_device_id=$(cat $HOME/.secure/C240-M4L-LAB.serial.txt)
+
+export TF_VAR_snmp_access_community_string=$(cat $HOME/.secure/GVE-RTP-DCV.snmp-access.txt)
+export TF_VAR_snmp_trap_community_string=$(cat $HOME/.secure/GVE-RTP-DCV.snmp-trap.txt)

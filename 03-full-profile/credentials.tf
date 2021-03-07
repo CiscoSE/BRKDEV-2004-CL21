@@ -31,7 +31,20 @@ variable "intersight_endpoint" {
     default = "https://intersight.com"
 }
 
-# In standard Terraform operations, you'll need to provide these values viaß
+# SNMP Credentials
+variable "snmp_access_community_string" {
+    description = "SNMP v1/v2c community string"
+    type = string
+    sensitive = true
+}
+
+variable "snmp_trap_community_string" {
+    description = "SNMP v1/v2c trap community string"
+    type = string
+    sensitive = true
+}
+
+# In standard Terraform operations, you'll need to provide these values via
 # environment variables (TF_VAR_intersight_secretkey and TF_VAR_intersight_apikey),
 # Terraform Cloud, Hashicorp Vault, provide them when prompted at the command line,
 # or fill them in above (but secure these files and don't mistakenly commit them to

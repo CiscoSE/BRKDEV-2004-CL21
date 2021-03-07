@@ -43,3 +43,54 @@ variable "ipv4_dns_server_2" {
     type = string
     default = "208.67.220.220"
 }
+
+variable "smtp_sender_email" {
+    description = "SMTP Client sender email address"
+    type = string
+    default = "sender@example.com"
+}
+
+variable "smtp_recipients_email" {
+    description = "SMTP Client recipient email address"
+    type = list
+    default = [
+        "recipient@example.com"
+    ]
+}
+
+variable "smtp_outgoing_server" {
+    description = "SMTP Client outbound email server"
+    type = string
+    default = "mail.example.com"
+}
+
+## Note: SNMP community and TRAP community strings are defined in credentials.tf
+variable "snmp_community_access" {
+    description = "SNMP setting to set v1/v2c access control"
+    type = string
+    default = "Full"
+}
+
+variable "snmp_sys_contact" {
+    description = "SNMP sys.contact information"
+    type = string
+    default = "Terraform Deployed snmp.sys.contact"
+}
+
+variable "snmp_sys_location" {
+    description = "SNMP sys.location information"
+    type = string
+    default = "Terraform Deployed snmp.sys.location"
+}
+
+variable "snmp_unique_engine_id" {
+    description = "SNMP unique engine ID information"
+    type = string
+    default = "TF_EngID"
+}
+
+variable "snmp_trap_destination" {
+    description = "SNMP Trap destination"
+    type = string
+    default = "traps.example.com"
+}
