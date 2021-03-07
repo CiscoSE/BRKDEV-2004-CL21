@@ -4,63 +4,10 @@ resource "intersight_vnic_lan_connectivity_policy" "hv_lan_adapters" {
         moid = data.intersight_organization_organization.default.moid
     }
 
-    description = "1:1 mapping of vNIC to external port for MLOM and PCIe Slot 2 - Terraform deployed"
-    name = "server1-DirectPorts"
+    description = "Terraform deployed - eth0 and eth1 bound to MLOM ports 0 and 1"
+    name = "hv_lan_adapters"
     target_platform = "Standalone"
     placement_mode = "custom"
-
-    profiles {
-        object_type = "server.Profile"
-        moid = intersight_server_profile.srvprof_server1.moid
-    }
-}
-
-# Define Adapter Configuration policy for server1
-resource "intersight_adapter_config_policy" "hv_mlom_eth_fc" {
-    organization {
-        moid = data.intersight_organization_organization.default.moid
-    }
-
-    description = "Terraform deployed - MLOM Configuration for CE setup"
-    name = "hv_mlom_eth_fc"
-
-    # First Adapter
-    settings {
-        slot_id = "MLOM"
-
-        # Ethernet Settings
-        eth_settings {
-            lldp_enabled = true
-        }
-
-        # FC Settings
-        fc_settings {
-            fip_enabled = true
-        }
-
-        # PC Settings
-        port_channel_settings {
-            enabled = false
-        }
-
-        # Default DCE settings
-        dce_interface_settings {
-            fec_mode = "Off"
-            interface_id = 0
-        }
-        dce_interface_settings {
-            fec_mode = "Off"
-            interface_id = 1
-        }
-        dce_interface_settings {
-            fec_mode = "Off"
-            interface_id = 2
-        }
-        dce_interface_settings {
-            fec_mode = "Off"
-            interface_id = 3
-        }
-    }
 
     profiles {
         object_type = "server.Profile"
