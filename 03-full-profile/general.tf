@@ -189,3 +189,25 @@ resource "intersight_snmp_policy" "disable_snmp_client" {
     name = "disable_snmp_client"
     enabled = false
 }
+
+# Configure SYSLOG settings, local only
+resource "intersight_syslog_policy" "syslog_local_only_notice" {
+    organization {
+        moid = data.intersight_organization_organization.default.moid
+    }
+
+    description = "Terraform deployed"
+    name = "syslog_local_only_notice"
+
+    local_clients = [ {
+      additional_properties = ""
+      class_id = "syslog.LocalFileLoggingClient"
+      min_severity = "notice"
+      object_type = "syslog.LocalFileLoggingClient"
+    } ]
+
+    profiles {
+        object_type = "server.Profile"
+        moid = intersight_server_profile.srvprof_server1.moid
+    }
+}
