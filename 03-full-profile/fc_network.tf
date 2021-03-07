@@ -83,8 +83,6 @@ resource "intersight_vnic_fc_qos_policy" "default_qos_fc_size_2112" {
     rate_limit = 0
     max_data_field_size = 2112
     cos = 3
-    # burst = 1024
-    # priority = "FC"
 }
 
 # Define FC vNIC network policy - for C-series standalone, declare no default_vlan
