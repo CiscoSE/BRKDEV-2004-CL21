@@ -50,3 +50,13 @@ with Terraform and Intersight.
 The workspace [02-full-profile](./02-full-profile/README.md) requires a couple more environment
 variables (as mentioned above) but will build a comprehensive set of policies and bind them
 to a server profile within Intersight.
+
+## Wanna stay up to date?
+
+This repository will stay static as a "historical reference" to pair with the Cisco Live session
+that can be found at [Cisco Live's website](https://ciscolive.com). I will be keeping a reasonably
+up to date version of this repository in my personal directory:
+[Introduction to Terraform and Intersight](https://github.com/gve-vse-tim/intro-to-terraform-and-intersight)
+
+Feel free to submit issues and/or pull requests against that repository and I'll do my best to
+keep things updated.
