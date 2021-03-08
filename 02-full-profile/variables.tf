@@ -8,13 +8,6 @@ variable "c240_m4l_lab_device_id" {
     type = string
 }
 
-###  main.tf
-variable "target_organization" {
-    description = "Demo Organization for Deployments"
-    type = string
-    default = "Demo-Deployment"
-}
-
 ###  general.tf
 variable "local_ntp_servers" {
     description = "NTP Server - Terraform deployed"
