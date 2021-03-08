@@ -29,13 +29,13 @@ plans in this repository:
 - **TF_VARS_intersight_secretkey**: The Secret keyfile *contents* for the provided API key
 - **TF_VARS_c240_m4l_lab_device_id**: The serial number for the C-series server being used in this demo
 
-For the full profile Terraform plan (./02-full-profile/main.tf), you'll also need to define these SNMP
-related security credentials:
+For the full profile Terraform plan [02-full-profile/main.tf](./02-full-profile/main.tf), you'll
+also need to define these SNMP related security credentials:
 
 - **TF_VAR_snmp_access_community_string**: SNMP v1/v2c community string
 - **TF_VAR_snmp_trap_community_string**: SNMP v1/v2c trap community string
 
-Please refer to the (./setup-environment-vars.txt) file to show a "safe" method for storing the
+Please refer to the [setup-environment-vars.txt](./setup-environment-vars.txt) file to show a "safe" method for storing the
 credentials in your local acount - "safe", of course, in this case with regards to avoiding accidental
 commits of your credentials to the Git repository.
 
