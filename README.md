@@ -1,6 +1,17 @@
 # BRKDEV-2004-CL21
 Cisco Live 2021 Anytime Breakout Session BRKDEV-2004
 
+This repository pairs with the aforementioned session - the guiding principle for this example
+repository is to provide a working, usable set of Terraform configuration files.  While some
+best practices may suggest a more frequent use of variables throughout the plan, (a) that approach
+would reduce the educational value and (b) many of these "hard coded" values derive from existing
+best practice parameters within the UCS ecosystem.  Of course, they should be adjusted based on
+your application needs but - with any luck - most will not need to be changed.
+
+There are some organization specific variables that were built into this Terraform configuration.
+Those variables and their defaults are defined in the **variables.tf** file of each subdirectory.
+You should **absolutely** changed those to match your organization.
+
 ## Pre-requisites
 
 - [Create Intersight Account](https://intersight.com/help/getting_started#create_a_cisco_intersight_account)
