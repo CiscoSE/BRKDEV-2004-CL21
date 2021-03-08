@@ -114,8 +114,10 @@ resource "intersight_vnic_eth_network_policy" "eth_trunk_native_vlan_1" {
     name = "eth_trunk_native_vlan_1"
     target_platform = "Standalone"
 
+    # Excluding VLANs for eth0, eth1, and FCoE
     vlan_settings {
         default_vlan = 1
+        allowed_vlans = "1-499,501-510,513-4094"
         mode = "TRUNK"
     }
 }
