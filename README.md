@@ -6,7 +6,7 @@ Terraform configuration files.  While some best practices may suggest a more fre
 variables throughout the plan, (a) that approach would reduce the educational value and
 (b) many of these "hard coded" values derive from existing best practice parameters within
 the UCS ecosystem.  Of course, they should be adjusted based on your application needs but
-- with any luck - most will not need to be changed.
+(with any luck) most will not need to be changed.
 
 There are some organization specific variables that were built into this Terraform configuration.
 Those variables and their defaults are defined in the **variables.tf** file of each subdirectory.
