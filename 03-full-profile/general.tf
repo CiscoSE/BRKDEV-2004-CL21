@@ -211,3 +211,32 @@ resource "intersight_syslog_policy" "syslog_local_only_notice" {
         moid = intersight_server_profile.srvprof_server1.moid
     }
 }
+
+resource "intersight_sol_policy" "enable_sol_com1_9600" {
+    organization {
+        moid = data.intersight_organization_organization.default.moid
+    }
+
+    description = "Terraform deployed"
+    name = "enable_sol_9600"
+    enabled   = true
+
+    baud_rate = 9600
+    com_port  = "com1"
+    ssh_port  = 2222
+
+    profiles {
+        object_type = "server.Profile"
+        moid = intersight_server_profile.srvprof_server1.moid
+    }
+}
+
+resource "intersight_sol_policy" "disable_sol" {
+    organization {
+        moid = data.intersight_organization_organization.default.moid
+    }
+
+    description = "Terraform deployed"
+    name = "disable_sol"
+    enabled   = false
+}
