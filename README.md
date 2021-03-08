@@ -12,6 +12,13 @@ There are some organization specific variables that were built into this Terrafo
 Those variables and their defaults are defined in the **variables.tf** file of each subdirectory.
 You should **absolutely** changed those to match your organization.
 
+## Use case
+
+The primary use case as showcased in the [02-full-profile](02-full-profile/README.md) workspace
+is building a comprehensive server profile and the component policies.  The assumption for the
+build is that we are constructing a hypervisor that needs 4 ethernet adapters, 2 fibre channel
+adapters, and also has a large pool of local disks to be leveraged as a single RAID6 archive.
+
 ## Pre-requisites
 
 - [Create Intersight Account](https://intersight.com/help/getting_started#create_a_cisco_intersight_account)
