@@ -1,17 +1,23 @@
 # Automating UCS Server Provisioning with Terraform and Intersight
 
-Cisco Live 2021 Anytime Breakout Session BRKDEV-2004
-
-This repository pairs with the aforementioned session - the guiding principle for this example
-repository is to provide a working, usable set of Terraform configuration files.  While some
-best practices may suggest a more frequent use of variables throughout the plan, (a) that approach
-would reduce the educational value and (b) many of these "hard coded" values derive from existing
-best practice parameters within the UCS ecosystem.  Of course, they should be adjusted based on
-your application needs but - with any luck - most will not need to be changed.
+This repository pairs with the Cisco Live 2021 Anytime Breakout Session BRKDEV-2004 session.
+The guiding principle for this example repository is to provide a working, usable set of
+Terraform configuration files.  While some best practices may suggest a more frequent use of
+variables throughout the plan, (a) that approach would reduce the educational value and
+(b) many of these "hard coded" values derive from existing best practice parameters within
+the UCS ecosystem.  Of course, they should be adjusted based on your application needs but
+(with any luck) most will not need to be changed.
 
 There are some organization specific variables that were built into this Terraform configuration.
 Those variables and their defaults are defined in the **variables.tf** file of each subdirectory.
 You should **absolutely** changed those to match your organization.
+
+## Use case
+
+The primary use case as showcased in the [02-full-profile](02-full-profile/README.md) workspace
+is building a comprehensive server profile and the component policies.  The assumption for the
+build is that we are constructing a hypervisor that needs 4 ethernet adapters, 2 fibre channel
+adapters, and also has a large pool of local disks to be leveraged as a single RAID6 archive.
 
 ## Pre-requisites
 
