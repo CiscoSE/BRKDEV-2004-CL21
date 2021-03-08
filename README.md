@@ -1,4 +1,5 @@
-# BRKDEV-2004-CL21
+# C-series Standalone Server Configuration Using Terraform
+
 Cisco Live 2021 Anytime Breakout Session BRKDEV-2004
 
 This repository pairs with the aforementioned session - the guiding principle for this example
