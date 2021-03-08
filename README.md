@@ -41,13 +41,11 @@ commits of your credentials to the Git repository.
 
 ## How to use this repository
 
-After satisfying the pre-requisites, customizing the **variables.tf** values, and defining the needed
-environment variables, the Terraform plan is deployed in the usual way:
+The workspace [01-simple-inventory](./01-simple-inventory/README.md) provides a very minimal
+Terraform configuration to simply help you get your core credentials defined, tested, and
+also give you some sample Terraform commands and output to help navigate your first time
+with Terraform and Intersight.
 
-1. terraform init
-1. terraform plan
-1. terraform apply
-
-For the purposes of this session and repository, the Terraform configuration files will only create
-all the policies and bind them to the server profile. The "deploy" action of the server profile resource
-is intended to be done manually in the Intersight interface.
+The workspace [02-full-profile](./02-full-profile/README.md) requires a couple more environment
+variables (as mentioned above) but will build a comprehensive set of policies and bind them
+to a server profile within Intersight.
