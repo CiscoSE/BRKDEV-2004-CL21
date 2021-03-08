@@ -1,4 +1,4 @@
-# C-series Standalone Server Configuration Using Terraform
+# Automating UCS Server Provisioning with Terraform and Intersight
 
 Cisco Live 2021 Anytime Breakout Session BRKDEV-2004
 
